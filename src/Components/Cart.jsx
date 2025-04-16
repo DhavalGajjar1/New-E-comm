@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function Cart({ items, onRemoveFromCart }) {
   const total = items.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
   );
+
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(items));
+  }, [items]);
 
   return (
     <>
@@ -36,11 +40,10 @@ function Cart({ items, onRemoveFromCart }) {
                   borderRadius: "8px",
                 }}
               />
-              <p style={{ color: "black",backgroundColor:"333" }}>{item.name}</p>
-              <p style={{ color: "black",backgroundColor:"333" }}>
-                ${item.price}x{item.quantity}
+              <p style={{ color: "black", backgroundColor: "#333" }}>{item.name}</p>
+              <p style={{ color: "black", backgroundColor: "#333" }}>
+                ${item.price} x {item.quantity}
               </p>
-
 
               <button
                 onClick={() => onRemoveFromCart(item.id)}
@@ -51,7 +54,7 @@ function Cart({ items, onRemoveFromCart }) {
                   borderRadius: "5px",
                   cursor: "pointer",
                   width: "100%",
-                  backgroundColor:"black"
+                  backgroundColor: "black"
                 }}
               >
                 Remove

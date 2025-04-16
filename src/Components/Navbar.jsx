@@ -30,7 +30,7 @@ function NavBar({ cartItemCount = 0, onContactClick }) {
             style={{
               position: "absolute",
               top: "10px",
-              right: "8px",
+              left: "55%",
               backgroundColor: "#654321",
               color: "#C4A484",
               borderRadius: "50%",
@@ -43,7 +43,7 @@ function NavBar({ cartItemCount = 0, onContactClick }) {
           </span>
         )}
 
-        {/* Contact Us Button */}
+  
         <button
           onClick={onContactClick}
           style={{
